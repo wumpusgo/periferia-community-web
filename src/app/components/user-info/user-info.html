@@ -1,23 +1,7 @@
-
-<table class="table-auto md:table-fixed border-collapse ...">
-  <thead>
-    <tr>
-      <th class="border border-gray-300 ...">Id</th>
-      <th class="border border-gray-300 ...">processor</th>
-    </tr>
-  </thead>
-  <tbody>
-  @for( pc of userInfo$ | async; track pc.id){
-    <tr>
-      <td class="border border-gray-300 ...">{{pc.id}}</td>
-      <td class="border border-gray-300 ...">{{pc.processor}}</td>
-    </tr>
-  }
-  @empty{
-    <tr>
-      <td>
-        no pc's found
-      </td>
-    </tr>
-  }
-  </tbody>
+@if (userInfo$ | async; as user) {
+  <!-- The local 'profile' variable is now available inside this block -->
+  <div>Name: {{ user.name}}</div>
+  <p>born: {{ user.bornDate}}</p>
+} @else {
+  <p>Loading user profile...</p>
+}

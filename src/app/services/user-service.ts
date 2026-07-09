@@ -8,8 +8,8 @@ export class UserService {
   public path: string = "http://localhost:8080/userInfo"
   public httpClient = inject(HttpClient)
 
-  getUserInfo(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.path)
+  getUserInfo(id: number): Observable<User> {
+    return this.httpClient.get<User>(`${this.path}/${id}`)
   }
 
 }

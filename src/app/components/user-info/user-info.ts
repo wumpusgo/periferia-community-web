@@ -12,10 +12,10 @@ import { User } from '../../models/user';
 })
 export class UserInfo implements OnInit {
   ngOnInit(): void {
-    this.userInfo$ = this.userInfoService.getUserInfo();
+    this.userInfo$ = this.userInfoService.getUserInfo(1);
   }
   public userInfoService = inject(UserService)
-  public userInfo$: Observable<User[]> = from([]);
+  public userInfo$: Observable<User> = from([]);
 
 
 
